@@ -1,0 +1,62 @@
+# ============================
+# CMake / Build directories
+# ============================
+build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+install_manifest.txt
+
+# Si algún día generas otros dirs de build
+Debug/
+Release/
+x64/
+x86/
+out/
+bin/
+lib/
+
+# ============================
+# pybind11 / extensiones Python
+# ============================
+*.so
+*.pyd
+*.dll
+*.exp
+*.lib
+*.obj
+*.pdb
+
+# ============================
+# Python
+# ============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+*.egg
+*.log
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+.env/
+
+# ============================
+# Visual Studio / IDEs
+# ============================
+.vs/
+*.VC.db
+*.VC.opendb
+
+# VS Code
+.vscode/
+
+# ============================
+# Otros
+# ============================
+.DS_Store
+Thumbs.db
