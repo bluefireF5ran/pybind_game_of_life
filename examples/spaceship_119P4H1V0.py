@@ -4,9 +4,15 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 
-# Añadimos build/Release al sys.path para poder importar cppdemo
+
 ROOT = Path(__file__).resolve().parents[1]
-build_dir = ROOT / "build" / "Release"  # cambia a "Debug" si compilas en Debug
+build_dir = ROOT / "build" 
+
+release_dir = build_dir / "Release"  # En Windows, las compilaciones suelen ir en una carpeta "Release"
+
+if release_dir.exists():
+    build_dir = release_dir
+
 sys.path.insert(0, str(build_dir))
 
 import cppdemo  # type: ignore

@@ -3,8 +3,14 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-build_dir = ROOT / "build" / "Release"  # o "build" / "Debug" si compilas en debug
-sys.path.append(str(build_dir))
+build_dir = ROOT / "build" 
+
+release_dir = build_dir / "Release"  # En Windows, las compilaciones suelen ir en una carpeta "Release"
+
+if release_dir.exists():
+    build_dir = release_dir
+
+sys.path.insert(0, str(build_dir))
 
 import time
 import numpy as np
