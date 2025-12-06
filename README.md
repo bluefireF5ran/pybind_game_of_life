@@ -59,6 +59,41 @@ El módulo cppdemo se generará en algo como:
 build/Release/cppdemo.cp3XX-win_amd64.pyd
 ```
 
+## Compilación (ejemplo en Ubuntu/Linux)
+
+Debes tener instalado python3 y sus dependencias:
+```
+sudo apt update
+sudo apt install -y build-essential cmake python3 python3-dev python3-pip
+```
+
+```
+python3 -m pip install --upgrade pip
+python3 -m pip install numpy matplotlib
+```
+
+
+Clonas el proyecto:
+```
+git clone <URL_DE_TU_REPO> pybind_game_of_life
+cd pybind_game_of_life
+```
+
+Configuras el proyecto con CMake:
+```
+mkdir -p build
+cd build
+cmake -DPYTHON_EXECUTABLE=$(which python3) ..
+cmake --build .
+```
+
+Si todo va bien, tendrás algo como:
+```
+build/cppdemo.cpython-XXX-x86_64-linux-gnu.so
+```
+
+
+
 ---
 
 ## Probar los módulos
@@ -70,11 +105,13 @@ cd examples
 ```
 
 ### Demo de patrones
+Emplea python o python3 según tu sistema operativo
 
 Desde la carpeta /examples:
 ```
 python demo_patterns.py
 ```
+
 
 ### Demo de animacion con matplotlib
 
