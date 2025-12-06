@@ -1,7 +1,9 @@
 #pragma once
 
+
 #include <vector>
 #include <cstdint>
+
 
 class World {
 public:
@@ -16,11 +18,12 @@ public:
     // Rellena aleatoriamente con probabilidad alive_prob de estar viva
     void randomize(double alive_prob);
 
-    // Avanza una generación aplicando las reglas del Game of Life
+    // Avanza una generacion aplicando las reglas del Game of Life
     void step();
 
     // Devuelve 0 o 1 para la celda (x, y)
     int get_cell(int x, int y) const;
+
 
     // Establece la celda (x, y) a 0 o 1
     void set_cell(int x, int y, int value);
@@ -30,7 +33,7 @@ private:
     int height_;
     std::vector<std::uint8_t> cells_;  // 0: muerta, 1: viva
 
-    // Índice lineal en el vector a partir de (x, y)
+    // indice lineal en el vector a partir de (x, y)
     int index(int x, int y) const {
         return y * width_ + x;
     }
