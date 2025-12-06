@@ -59,6 +59,8 @@ El módulo cppdemo se generará en algo como:
 build/Release/cppdemo.cp3XX-win_amd64.pyd
 ```
 
+----
+
 ## Compilación (ejemplo en Ubuntu/Linux)
 
 Debes tener instalado python3 y sus dependencias:
