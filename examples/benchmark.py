@@ -53,7 +53,10 @@ def step_python(state: np.ndarray) -> np.ndarray:
 
 # --- Benchmark Python puro ------------------------------
 np.random.seed(0)
-state_py = (np.random.rand(HEIGHT, WIDTH) < 0.3).astype(np.uint8)
+
+init_state_py = (np.random.rand(HEIGHT, WIDTH) < 0.3).astype(np.uint8)
+
+state_py = init_state_py.copy()
 
 t0 = time.perf_counter()
 for _ in range(STEPS):
@@ -65,8 +68,7 @@ print(f"Python puro: {time_python:.3f} s para {STEPS} pasos")
 
 # --- Benchmark C++ via pybind11 -------------------------
 w = cppdemo.World(WIDTH, HEIGHT)
-# Reutilizamos el mismo estado inicial que usamos en Python
-w.set_state((np.random.rand(HEIGHT, WIDTH) < 0.3).astype(np.uint8))
+w.set_state(init_state_py)
 
 t0 = time.perf_counter()
 for _ in range(STEPS):
